@@ -1,0 +1,18 @@
+What
+(1) PANet - Bottomup Augmentation + fc fusion - Implementaion from Mask RCNN
+
+Changes
+(1) modeling/FPN.py
+(2) modeling/mask_rcnn_heads.py
+
+Appendix:
+Experimenting on Bottom-up Augmentation ->
+detectron/modeling/FPN.py -> add_fpn()
+Experimenting on Mask Branch or fc fusion ->
+detectron/modeling/mask_rcnn_heads.py -> mask_rcnn_fcn_head_v1upXconvs()
+Experimenting on Adaptive Feature Mapping -> 
+detectron/modeling/FPN.py -> map_rois_to_fpn_levels()
+detectron/modeling/FPN.py -> add_multilevel_roi_blobs()
+detectron/ ops/collect_and_distribute_fpn_rpn_proposal.py -> distribute()
+Experimenting on Additional pyramids on RPN ->
+detectron/modeling/FPN.py -> add_fpn_rpn_outputs ()

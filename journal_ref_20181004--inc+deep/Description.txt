@@ -1,0 +1,24 @@
+What
+(1) New Inception FPN Arch + topdown connections + PostHoc + DeepBlock = Inception lateral DeepBlock
+(2) FC_Fusion
+(3) PostHoc restored (It was not used for v1)
+(4) Adding dilation == 2 for Mask Branch
+(5) Change BASE_LR and BATCH_SIZE_PER_IM
+(6) Adding DeepBlock
+
+Changes
+(1) modeling/FPN.py
+(2) modeling/mask_rcnn_heads.py
+(3) major changes to e2e_mask_rcnn_R-50-FPN_1x.yaml
+
+Appendix:
+Experimenting on Bottom-up Augmentation ->
+detectron/modeling/FPN.py -> add_fpn()
+Experimenting on Mask Branch or fc fusion ->
+detectron/modeling/mask_rcnn_heads.py -> mask_rcnn_fcn_head_v1upXconvs()
+Experimenting on Adaptive Feature Mapping -> 
+detectron/modeling/FPN.py -> map_rois_to_fpn_levels()
+detectron/modeling/FPN.py -> add_multilevel_roi_blobs()
+detectron/ ops/collect_and_distribute_fpn_rpn_proposal.py -> distribute()
+Experimenting on Additional pyramids on RPN ->
+detectron/modeling/FPN.py -> add_fpn_rpn_outputs ()
